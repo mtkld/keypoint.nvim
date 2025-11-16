@@ -1461,6 +1461,14 @@ local function sort_keys_by_most_recent_unixtimestamp(input_table)
 end
 -- Function to associate a prefix key with an action key
 function M.run_prefix_key(prefix_key, desc, key_span, desc_callback)
+	log(
+		"Running prefix key: "
+			.. prefix_key
+			.. " with description: "
+			.. (desc or "No description provided")
+			.. " and key span: "
+			.. (key_span or "global")
+	)
 	local total_width = vim.opt.columns:get()
 	local base_color = M.string_to_color(desc .. "xcxc")
 	base_color = M.adjust_color(base_color, 40, 50)
